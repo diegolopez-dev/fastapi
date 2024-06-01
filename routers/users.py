@@ -15,7 +15,8 @@ users_list = [User(id=1, name="Brais", surname="Moure", url="https://moure.dev",
               User(id=3, name="Brais", surname="Dahlberg", url="https://haakon.com", age=33)]
 
 @router.get("/usersjson")
-async def usersjson():  # Creamos un JSON a mano
+async def usersjson():  
+    # Creamos un JSON a mano
     return [{"name": "Brais", "surname": "Moure", "url": "https://moure.dev", "age": 35},
             {"name": "Moure", "surname": "Dev", "url": "https://mouredev.com", "age": 35},
             {"name": "Haakon", "surname": "Dahlberg", "url": "https://haakon.com", "age": 33}]
@@ -24,11 +25,13 @@ async def usersjson():  # Creamos un JSON a mano
 async def users():
     return users_list
 
-@router.get("/user/{id}")  # Path
+# Path
+@router.get("/user/{id}")  
 async def user(id: int):
     return search_user(id)
 
-@router.get("/user/")  # Query
+# Query
+@router.get("/user/")  
 async def user(id: int):
     return search_user(id)
 
